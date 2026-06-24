@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Porta Retrato Digital</title>
+    <!-- Link para os ícones de clima animados -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css">
     <style>
         * {
@@ -64,24 +65,25 @@
             align-items: baseline;
         }
 
+        /* TAMANHO DA HORA AUMENTADO AQUI */
         .time {
-            font-size: 3.8rem;
+            font-size: 6rem; /* Antes era 3.8rem */
             font-weight: 700;
-            letter-spacing: -1px;
+            letter-spacing: -2px;
             line-height: 0.9;
         }
 
         .date {
-            font-size: 1.1rem;
+            font-size: 1.5rem; /* Levemente aumentado para acompanhar a proporção */
             font-weight: 400;
             opacity: 0.85;
             text-transform: capitalize;
-            margin-top: 8px;
+            margin-top: 12px;
         }
 
         /* Widget de Clima - Canto Inferior Direito */
         .weather-widget {
-            right: 30px;
+            right: 50px; /* Ajustado para dar um pouco mais de margem */
             align-items: flex-end;
             text-align: right;
         }
@@ -89,11 +91,12 @@
         .weather-container {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px; /* Aumentado o espaço entre ícone e texto */
         }
 
+        /* TAMANHO DO ÍCONE DE CLIMA AUMENTADO */
         .weather-icon {
-            font-size: 3rem;
+            font-size: 4.5rem; /* Antes era 3rem */
             color: #f1c40f;
             animation: pulse 3s infinite ease-in-out;
             filter: drop-shadow(0px 2px 8px rgba(0,0,0,0.5));
@@ -105,18 +108,20 @@
             align-items: flex-end;
         }
 
+        /* TAMANHO DA TEMPERATURA AUMENTADO AQUI */
         .temp {
-            font-size: 2.2rem;
+            font-size: 4rem; /* Antes era 2.2rem */
             font-weight: 700;
             line-height: 1;
         }
 
+        /* TAMANHO DA CONDIÇÃO (TEXTO) AUMENTADO AQUI */
         .condition {
-            font-size: 1rem;
+            font-size: 1.5rem; /* Antes era 1rem */
             font-weight: 400;
             opacity: 0.85;
             text-transform: capitalize;
-            margin-top: 4px;
+            margin-top: 8px;
         }
 
         /* Animação suave para o ícone do clima */
@@ -130,6 +135,7 @@
 <body>
 
     <div class="slide-container">
+        <!-- Adicione o caminho das suas fotos aqui -->
         <div class="slide active" style="background-image: url('foto1.jpg.jpeg');"></div>
         <div class="slide" style="background-image: url('foto2.jpg.jpeg');"></div>
         <div class="slide" style="background-image: url('foto3.jpg.jpeg');"></div>
@@ -138,6 +144,7 @@
         <div class="slide" style="background-image: url('foto6.jpg.jpeg');"></div>
     </div>
 
+    <!-- Relógio (Inferior Esquerdo) em formato 24h -->
     <div class="widget clock-widget">
         <div class="time-container">
             <div class="time" id="clock">00:00</div>
@@ -145,6 +152,7 @@
         <div class="date" id="date">Quarta, 24 de Junho</div>
     </div>
 
+    <!-- Clima (Inferior Direito) -->
     <div class="widget weather-widget">
         <div class="weather-container">
             <div class="weather-info">
