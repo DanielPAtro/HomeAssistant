@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Porta Retrato Digital</title>
-    <!-- Link para os ícones de clima animados -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css">
     <style>
         * {
@@ -131,7 +130,6 @@
 <body>
 
     <div class="slide-container">
-        <!-- Adicione o caminho das suas fotos aqui -->
         <div class="slide active" style="background-image: url('foto1.jpg.jpeg');"></div>
         <div class="slide" style="background-image: url('foto2.jpg.jpeg');"></div>
         <div class="slide" style="background-image: url('foto3.jpg.jpeg');"></div>
@@ -140,7 +138,6 @@
         <div class="slide" style="background-image: url('foto6.jpg.jpeg');"></div>
     </div>
 
-    <!-- Relógio (Inferior Esquerdo) em formato 24h -->
     <div class="widget clock-widget">
         <div class="time-container">
             <div class="time" id="clock">00:00</div>
@@ -148,7 +145,6 @@
         <div class="date" id="date">Quarta, 24 de Junho</div>
     </div>
 
-    <!-- Clima (Inferior Direito) -->
     <div class="widget weather-widget">
         <div class="weather-container">
             <div class="weather-info">
@@ -161,7 +157,6 @@
 
     <script>
         // --- CONFIGURAÇÃO DA API DE CLIMA (OpenWeatherMap) ---
-        // IMPORTANTE: Altere para sua cidade e coloque sua chave gerada no site deles
         const CIDADE = "Maricá, BR"; 
         const API_KEY = "4df3c82852ef75c3fcd6f18d02b78dbc"; 
 
@@ -193,7 +188,7 @@
 
         // --- BUSCA DE PREVISÃO DO TEMPO ---
         async function getWeather() {
-            if (API_KEY === "4df3c82852ef75c3fcd6f18d02b78dbc") {
+            if (!API_KEY) {
                 document.getElementById('condition').textContent = "Sem API Key";
                 return;
             }
@@ -211,9 +206,13 @@
                     document.getElementById('condition').textContent = desc;
                     
                     mapWeatherIcon(iconCode);
+                } else {
+                    document.getElementById('condition').textContent = "Erro na API";
+                    console.error("Erro na API:", data.message);
                 }
             } catch (error) {
                 console.log("Erro ao buscar clima:", error);
+                document.getElementById('condition').textContent = "Erro de conexão";
             }
         }
 
